@@ -1,0 +1,497 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Feliz Cumpleaños, Girasol</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat:wght@600;700&family=Nunito:wght@400;600;800&display=swap">
+<style>
+  /* Layout: una noche de fiesta en tono ciruela; el girasol (sus aretes) es el hilo conductor.
+     Hero con girasol, línea de tiempo de la historia, sección de su trabajo, sellos de viaje,
+     torta con velas para soplar, carta y coro cantado. Look único oscuro por elección. */
+  :root {
+    --bg: #2b1030;
+    --bg-soft: #3a1741;
+    --card: #46204d;
+    --ink: #fff3e2;
+    --muted: #dcc3d9;
+    --sun: #ffc93c;
+    --sun-deep: #f4a300;
+    --rose: #ff5c7a;
+    --mint: #7fe3c8;
+    --line: rgba(255, 243, 226, 0.2);
+    --font-display: "Bagel Fat One", "Arial Rounded MT Bold", system-ui, sans-serif;
+    --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-hand: "Caveat", "Segoe Script", cursive;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 56px;
+  }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(2rem, 6vw, 3.2rem); color: var(--sun); }
+  p { margin: 0; }
+  .eyebrow {
+    font-family: var(--font-hand);
+    font-size: 1.7rem;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+  .lead { color: var(--muted); max-width: 60ch; margin-top: 14px; }
+  button { font: inherit; cursor: pointer; }
+  button:focus-visible, .tooth-btn:focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
+  .btn {
+    background: var(--sun);
+    color: #3b1a00;
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 0 6px 0 var(--sun-deep);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 0 var(--sun-deep); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--sun-deep); }
+  .btn.alt { background: var(--rose); box-shadow: 0 6px 0 #c93658; color: #fff; }
+  .btn.alt:hover { box-shadow: 0 8px 0 #c93658; }
+  .btn.alt:active { box-shadow: 0 2px 0 #c93658; }
+
+  #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; padding-block: 48px 40px; }
+  .hero > * { min-width: 0; }
+  .hero h1 { font-size: clamp(2.8rem, 10vw, 5.6rem); }
+  .hero .name {
+    display: block;
+    font-family: var(--font-hand);
+    font-weight: 700;
+    font-size: clamp(3rem, 11vw, 6rem);
+    color: var(--sun);
+    line-height: 1;
+    margin-top: 6px;
+    transform: rotate(-3deg);
+    transform-origin: left center;
+  }
+  .hero .sub { margin-top: 22px; font-size: 1.15rem; color: var(--muted); max-width: 44ch; }
+  .hero .actions { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .flower { width: 100%; max-width: 380px; justify-self: center; }
+  .flower svg { width: 100%; height: auto; display: block; animation: spin 60s linear infinite; }
+  .bunting { display: flex; gap: 0; height: 34px; margin-bottom: 8px; overflow: hidden; }
+  .bunting span { flex: 1 0 34px; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 36px 0 0; padding: 0 0 0 28px; position: relative; display: grid; gap: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(var(--sun), var(--rose)); border-radius: 3px; }
+  .timeline li { position: relative; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  .timeline li::before { content: ""; position: absolute; left: -28px; top: 22px; width: 17px; height: 17px; border-radius: 50%; background: var(--sun); border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--sun); }
+  .timeline .tag { font-family: var(--font-hand); font-size: 1.5rem; color: var(--rose); line-height: 1; }
+  .timeline h3 { font-size: 1.5rem; color: var(--ink); margin: 4px 0 6px; }
+  .timeline p { color: var(--muted); }
+
+  /* Work / smile */
+  .smile { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .smile .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 36px; align-items: center; }
+  .smile .wrap > * { min-width: 0; }
+  .tooth-btn { background: none; border: 0; padding: 0; justify-self: center; width: min(100%, 260px); position: relative; }
+  .tooth-btn svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 0 rgba(0,0,0,.18)); transition: transform .25s ease; }
+  .tooth-btn:hover svg { transform: rotate(-4deg) scale(1.04); }
+  .tooth-btn.pop svg { animation: pop .6s ease; }
+  .tooth-hint { font-family: var(--font-hand); color: var(--mint); font-size: 1.4rem; text-align: center; margin-top: 8px; }
+  .crafts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .crafts span { border: 2px solid var(--mint); color: var(--mint); border-radius: 999px; padding: 6px 16px; font-weight: 800; }
+
+  /* Travel stamps */
+  .stamps { margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 22px; }
+  .stamp {
+    border: 3px dashed var(--sun);
+    border-radius: 14px;
+    padding: 22px 14px 18px;
+    text-align: center;
+    background: var(--bg-soft);
+    transition: transform .2s ease;
+  }
+  .stamp:nth-child(odd) { transform: rotate(-2deg); }
+  .stamp:nth-child(even) { transform: rotate(2deg); border-color: var(--rose); }
+  .stamp:hover { transform: rotate(0) scale(1.05); }
+  .stamp .city { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink); }
+  .stamp .note { font-family: var(--font-hand); font-size: 1.35rem; color: var(--muted); line-height: 1.1; margin-top: 4px; }
+  .stamp svg { width: 34px; height: 34px; margin-bottom: 4px; }
+
+  /* Cake */
+  .cake-sec { text-align: center; }
+  .cake-sec .lead { margin-inline: auto; }
+  .cake { width: min(100%, 320px); margin: 28px auto 12px; display: block; }
+  .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker .9s ease-in-out infinite alternate; transition: opacity .3s ease, transform .3s ease; }
+  .blown .flame { opacity: 0; transform: scale(0.2); animation: none; }
+  .smoke { opacity: 0; }
+  .blown .smoke { animation: rise 1.6s ease-out forwards; }
+  .wish-msg { min-height: 2.4rem; font-family: var(--font-hand); font-size: 2rem; color: var(--sun); margin-top: 10px; }
+  .wishes { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 18px; text-align: left; }
+  .wish { background: var(--card); border-radius: 18px; padding: 22px; border: 1px solid var(--line); }
+  .wish h3 { color: var(--sun); font-size: 1.5rem; margin-bottom: 8px; }
+  .wish p { color: var(--muted); }
+
+  /* Letter */
+  .letter-sec { background: var(--bg-soft); border-top: 1px solid var(--line); }
+  .letter {
+    max-width: 680px;
+    margin: 30px auto 0;
+    background: #fff3e2;
+    color: #3a1741;
+    border-radius: 6px;
+    padding: 36px clamp(20px, 5vw, 44px);
+    box-shadow: 0 14px 0 rgba(0,0,0,.2);
+    transform: rotate(-1deg);
+    font-size: 1.1rem;
+  }
+  .letter .hand { font-family: var(--font-hand); font-weight: 700; font-size: 2rem; color: #c93658; }
+  .letter p + p { margin-top: 14px; }
+  .letter .sign { margin-top: 20px; font-family: var(--font-hand); font-weight: 700; font-size: 1.9rem; color: #c93658; text-align: right; }
+
+  /* Corrido */
+  .corrido { text-align: center; }
+  .corrido blockquote { margin: 26px auto 0; max-width: 24ch; font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.3rem); line-height: 1.25; color: var(--ink); }
+  .corrido blockquote em { font-style: normal; color: var(--rose); }
+  .corrido .shout { font-family: var(--font-hand); font-size: 2rem; color: var(--sun); margin-top: 14px; }
+  .end { text-align: center; padding-block: 36px 70px; color: var(--muted); }
+  .end strong { display: block; font-family: var(--font-hand); font-size: 2.4rem; color: var(--sun); font-weight: 700; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes flicker { from { transform: scale(1, 1) rotate(-3deg); } to { transform: scale(0.92, 1.1) rotate(3deg); } }
+  @keyframes rise { 0% { opacity: .8; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-46px); } }
+  @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.18) rotate(6deg); } 100% { transform: scale(1); } }
+
+  @media (max-width: 720px) {
+    .hero, .smile .wrap { grid-template-columns: 1fr; }
+    .flower { max-width: 260px; order: -1; }
+    .wrap { padding-block: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .flower svg, .flame { animation: none; }
+    .stamp, .btn, .tooth-btn svg { transition: none; }
+  }
+</style>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="wrap hero">
+  <div>
+    <div class="bunting" id="bunting" aria-hidden="true"></div>
+    <p class="eyebrow">hoy es tu día</p>
+    <h1>Feliz cumpleaños<span class="name">Kristell ❤️</span></h1>
+    <p class="sub">Hice esta página para ti, con todo lo que quiero agradecerte y celebrar en este día.</p>
+    <div class="actions">
+      <button class="btn" id="burst-btn" type="button">Lanzar confeti</button>
+      <button class="btn alt" id="goto-cake" type="button">Ir a la torta</button>
+    </div>
+  </div>
+  <div class="flower" id="flower" aria-hidden="true"></div>
+</header>
+
+<section class="wrap" aria-labelledby="h-historia">
+  <p class="eyebrow">desde el principio</p>
+  <h2 id="h-historia">Así empezó nuestra historia</h2>
+  <p class="lead">Cada paso nos trajo hasta aquí, incluso el día que me enojé.</p>
+  <ol class="timeline">
+    <li>
+      <span class="tag">tiempo de pandemia</span>
+      <h3>Un amigo en común</h3>
+      <p>Un amigo nos presentó sin saber todo lo que iba a pasar después. Gracias, amigo.</p>
+    </li>
+    <li>
+      <span class="tag">la primera salida</span>
+      <h3>"Todavía no estoy lista"</h3>
+      <p>Habíamos quedado una semana antes y yo ya iba camino a tu casa cuando me avisaste. Me molesté, pero volví a recogerte y terminamos comiendo pollito a la brasa. Fue la mejor manera de arreglarlo.</p>
+    </li>
+    <li>
+      <span class="tag">los girasoles</span>
+      <h3>Los aretes</h3>
+      <p>La primera vez que te regalé algo fueron unos aretes en forma de girasol. Desde entonces los girasoles son tuyos.</p>
+    </li>
+    <li>
+      <span class="tag">frente al mar</span>
+      <h3>Nuestro primer beso</h3>
+      <p>En la playa, con M&amp;M y chocolates. Poco a poco nos fuimos conociendo más, y ese día ya lo supe.</p>
+    </li>
+    <li>
+      <span class="tag">y seguimos</span>
+      <h3>Todos los viajes</h3>
+      <p>Cada ciudad contigo se siente como una fiesta. Abajo están los sellos de nuestro pasaporte.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="smile" aria-labelledby="h-talento">
+  <div class="wrap">
+    <div>
+      <button class="tooth-btn" id="tooth" type="button" aria-label="Hacer brillar el diente">
+        <svg viewBox="0 0 64 80" aria-hidden="true">
+          <path d="M32 8C26 8 22 11 16 11 9 11 6 17 8 26c2 10 5 15 6 26 1 10 3 20 8 20 5 0 5-14 10-14s5 14 10 14c5 0 7-10 8-20 1-11 4-16 6-26 2-9-1-15-8-15-6 0-10-3-16-3Z" fill="#fff3e2"/>
+          <path d="M20 18c-4 1-6 5-5 11" fill="none" stroke="#d9c7e6" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M44 20l1.2 3 3 1.2-3 1.2L44 28.4l-1.2-3-3-1.2 3-1.2Z" fill="#7fe3c8"/>
+          <path d="M18 40l.9 2.2 2.2.9-2.2.9L18 46.2l-.9-2.2-2.2-.9 2.2-.9Z" fill="#ffc93c"/>
+        </svg>
+      </button>
+      <p class="tooth-hint">tócalo, que brille</p>
+    </div>
+    <div>
+      <p class="eyebrow">tu talento</p>
+      <h2 id="h-talento">Tú creas sonrisas</h2>
+      <p class="lead">Cada diente y cada prótesis que haces le devuelve a alguien una sonrisa que había perdido. Te estás especializando más y más en lo que haces, y cada día lo haces con más cuidado y más arte. Me llena de orgullo verte crecer.</p>
+      <div class="crafts" aria-label="Lo que haces">
+        <span>Dientes</span><span>Prótesis</span><span>Detalle</span><span>Pasión</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-viajes">
+  <p class="eyebrow">nuestro pasaporte</p>
+  <h2 id="h-viajes">Los lugares que ya son nuestros</h2>
+  <p class="lead">Contigo hasta una caminata por Gamarra es una aventura.</p>
+  <div class="stamps" id="stamps"></div>
+</section>
+
+<section class="wrap cake-sec" aria-labelledby="h-torta">
+  <p class="eyebrow">a pedir un deseo</p>
+  <h2 id="h-torta">Sopla las velas</h2>
+  <p class="lead">Cierra los ojos, piensa en lo que más quieres este año y sopla.</p>
+  <div id="cake-box">
+    <svg class="cake" id="cake" viewBox="0 0 240 230" role="img" aria-label="Torta de cumpleaños con tres velas">
+      <ellipse cx="120" cy="214" rx="104" ry="12" fill="#1d0a21"/>
+      <rect x="30" y="150" width="180" height="58" rx="12" fill="#ff5c7a"/>
+      <rect x="52" y="104" width="136" height="50" rx="12" fill="#ffc93c"/>
+      <rect x="74" y="64" width="92" height="44" rx="12" fill="#fff3e2"/>
+      <path d="M30 162c10 14 16 14 26 0s16 14 26 0 16 14 26 0 16 14 26 0 16 14 26 0 16 14 26 0v-12H30Z" fill="#ffd9e0"/>
+      <path d="M52 116c8 12 14 12 22 0s14 12 22 0 14 12 22 0 14 12 22 0v-12H52Z" fill="#fff0b8"/>
+      <circle cx="68" cy="182" r="5" fill="#fff3e2"/><circle cx="104" cy="190" r="5" fill="#fff3e2"/>
+      <circle cx="140" cy="182" r="5" fill="#fff3e2"/><circle cx="176" cy="190" r="5" fill="#fff3e2"/>
+      <g>
+        <rect x="94" y="36" width="9" height="30" rx="3" fill="#7fe3c8"/>
+        <rect x="116" y="30" width="9" height="36" rx="3" fill="#ff5c7a"/>
+        <rect x="138" y="36" width="9" height="30" rx="3" fill="#7fe3c8"/>
+        <path class="flame" d="M98.5 14c5 6 5 12 0 16-5-4-5-10 0-16Z" fill="#ffc93c"/>
+        <path class="flame" d="M120.5 8c5 6 5 12 0 16-5-4-5-10 0-16Z" fill="#ffc93c" style="animation-delay:.2s"/>
+        <path class="flame" d="M142.5 14c5 6 5 12 0 16-5-4-5-10 0-16Z" fill="#ffc93c" style="animation-delay:.4s"/>
+        <g class="smoke" fill="none" stroke="#dcc3d9" stroke-width="2" stroke-linecap="round">
+          <path d="M98 26c-4-6 4-10 0-16"/><path d="M120 20c-4-6 4-10 0-16"/><path d="M142 26c-4-6 4-10 0-16"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <button class="btn" id="blow" type="button">Soplar las velas</button>
+  <p class="wish-msg" id="wish-msg" aria-live="polite"></p>
+
+  <div class="wishes">
+    <article class="wish">
+      <h3>En tu trabajo</h3>
+      <p>Que sigas especializándote, que cada paciente se vaya sonriendo y que los éxitos no te falten.</p>
+    </article>
+    <article class="wish">
+      <h3>En tu familia</h3>
+      <p>Que tengas a los tuyos cerca, con salud y con muchos momentos para celebrar juntos.</p>
+    </article>
+    <article class="wish">
+      <h3>En todo lo que te propongas</h3>
+      <p>Lo que te pongas en la cabeza lo vas a lograr. Yo voy a estar aplaudiendo.</p>
+    </article>
+  </div>
+</section>
+
+<section class="letter-sec">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">para ti</p>
+    <h2 style="text-align:center">Gracias por tanto</h2>
+    <div class="letter">
+      <p class="hand">Mi amor,</p>
+      <p>Desde que te conocí mi vida es más alegre. Gracias por querer hacer siempre cosas buenas, por tu paciencia aquella primera salida en la que me enojé, y por cada plan, cada risa y cada viaje que hemos hecho juntos.</p>
+      <p>Me gusta mucho que te guste lo que haces y me siento muy orgulloso de ti. Que este año te traiga muchos éxitos en tu trabajo, en tu familia y en todo lo que te propongas.</p>
+      <p>Feliz cumpleaños. Gracias por existir.</p>
+      <p class="sign">Con todo mi cariño</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap corrido" aria-labelledby="h-corrido">
+  <p class="eyebrow">la dedicatoria cantada</p>
+  <h2 id="h-corrido">Va el coro, a todo pulmón</h2>
+  <blockquote>
+    ¡Feliz cumpleaños, mi vida, mi amor!<br>
+    Con tus manos de artista le das al mundo <em>color</em>.<br>
+    Que vivan las sonrisas que tú sabes fabricar,<br>
+    y yo aquí a tu lado, pa' siempre acompañar.
+  </blockquote>
+  <p style="margin-top:22px"><button class="btn" id="burst-end" type="button">Otra ronda de confeti</button></p>
+</section>
+
+<footer class="end">
+  <strong>Te AMO mucho</strong>
+  Hecho con Amor, solo para ti.
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Girasol ---------- */
+  function sunflower() {
+    var s = '<svg viewBox="-100 -100 200 200">', i, a, r, x, y;
+    for (i = 0; i < 18; i++) {
+      s += '<ellipse cx="0" cy="-62" rx="14" ry="34" fill="#f4a300" transform="rotate(' + (i * 20) + ')"/>';
+    }
+    for (i = 0; i < 18; i++) {
+      s += '<ellipse cx="0" cy="-60" rx="13" ry="31" fill="#ffc93c" transform="rotate(' + (i * 20 + 10) + ')"/>';
+    }
+    s += '<circle r="38" fill="#4a2410"/>';
+    for (i = 1; i < 110; i++) {
+      a = i * 137.508 * Math.PI / 180;
+      r = 3.4 * Math.sqrt(i);
+      x = (r * Math.cos(a)).toFixed(1);
+      y = (r * Math.sin(a)).toFixed(1);
+      s += '<circle cx="' + x + '" cy="' + y + '" r="1.7" fill="#8a5326"/>';
+    }
+    return s + '</svg>';
+  }
+  document.getElementById("flower").innerHTML = sunflower();
+
+  /* ---------- Banderines ---------- */
+  var colors = ["#ffc93c", "#ff5c7a", "#7fe3c8", "#fff3e2"];
+  var bunting = document.getElementById("bunting"), b = "";
+  for (var k = 0; k < 24; k++) b += '<span style="background:' + colors[k % 4] + '"></span>';
+  bunting.innerHTML = b;
+
+  /* ---------- Sellos de viaje ---------- */
+  var places = [
+    ["Cajamarca", "aire fresquito"],
+    ["Huaraz", "montañas y nosotros"],
+    ["Chiclayo", "sabor y calor"],
+    ["Chimbote", "mar y buen plan"],
+    ["Lima", "hasta Gamarra"]
+  ];
+  var pin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" fill="#ff5c7a"/><circle cx="12" cy="10" r="2.8" fill="#fff3e2"/></svg>';
+  document.getElementById("stamps").innerHTML = places.map(function (p) {
+    return '<div class="stamp">' + pin + '<div class="city">' + p[0] + '</div><div class="note">' + p[1] + '</div></div>';
+  }).join("");
+
+  /* ---------- Confeti ---------- */
+  var canvas = document.getElementById("confetti"), ctx = canvas.getContext("2d");
+  var parts = [], running = false, W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  var palette = ["#ffc93c", "#ff5c7a", "#7fe3c8", "#fff3e2", "#ff9fb3"];
+  function burst(x, y, n, pal) {
+    if (reduce) return;
+    pal = pal || palette;
+    for (var i = 0; i < n; i++) {
+      var ang = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 9;
+      parts.push({
+        x: x, y: y,
+        vx: Math.cos(ang) * sp,
+        vy: Math.sin(ang) * sp - 6,
+        rot: Math.random() * 6, vr: (Math.random() - .5) * .4,
+        w: 6 + Math.random() * 8, h: 4 + Math.random() * 6,
+        c: pal[(Math.random() * pal.length) | 0],
+        round: Math.random() < .25,
+        life: 0
+      });
+    }
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  function rain(n) {
+    if (reduce) return;
+    for (var i = 0; i < n; i++) {
+      parts.push({
+        x: Math.random() * W, y: -20 - Math.random() * H * .4,
+        vx: (Math.random() - .5) * 2, vy: 2 + Math.random() * 3,
+        rot: Math.random() * 6, vr: (Math.random() - .5) * .3,
+        w: 6 + Math.random() * 7, h: 4 + Math.random() * 5,
+        c: palette[(Math.random() * palette.length) | 0],
+        round: Math.random() < .25, life: 0
+      });
+    }
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = parts.length - 1; i >= 0; i--) {
+      var p = parts[i];
+      p.vy += 0.22; p.vx *= 0.992; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+      if (p.y > H + 30) { parts.splice(i, 1); continue; }
+      ctx.save();
+      ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.c;
+      if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.w / 2.2, 0, 6.3); ctx.fill(); }
+      else { ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); }
+      ctx.restore();
+    }
+    if (parts.length) requestAnimationFrame(tick);
+    else { running = false; ctx.clearRect(0, 0, W, H); }
+  }
+  function center(el) {
+    var r = el.getBoundingClientRect();
+    return [r.left + r.width / 2, r.top + r.height / 2];
+  }
+
+  /* ---------- Botones ---------- */
+  var burstBtn = document.getElementById("burst-btn");
+  burstBtn.addEventListener("click", function () {
+    var c = center(burstBtn); burst(c[0], c[1], 110); rain(60);
+  });
+  var endBtn = document.getElementById("burst-end");
+  endBtn.addEventListener("click", function () {
+    var c = center(endBtn); burst(c[0], c[1], 120); rain(80);
+  });
+  document.getElementById("goto-cake").addEventListener("click", function () {
+    var t = document.getElementById("h-torta");
+    t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  });
+
+  var tooth = document.getElementById("tooth");
+  tooth.addEventListener("click", function () {
+    tooth.classList.remove("pop"); void tooth.offsetWidth; tooth.classList.add("pop");
+    var c = center(tooth); burst(c[0], c[1], 50, ["#fff3e2", "#7fe3c8", "#ffffff", "#ffc93c"]);
+  });
+
+  var cakeBox = document.getElementById("cake-box"), blowBtn = document.getElementById("blow"), msg = document.getElementById("wish-msg");
+  var blown = false;
+  blowBtn.addEventListener("click", function () {
+    blown = !blown;
+    cakeBox.classList.toggle("blown", blown);
+    if (blown) {
+      blowBtn.textContent = "Encender de nuevo";
+      msg.textContent = "Que se cumpla todo lo que pediste";
+      var c = center(document.getElementById("cake")); burst(c[0], c[1] - 40, 140); rain(70);
+    } else {
+      blowBtn.textContent = "Soplar las velas";
+      msg.textContent = "";
+    }
+  });
+
+  /* Pequeña lluvia de bienvenida */
+  window.setTimeout(function () { rain(40); }, 500);
+})();
+</script>
+
+</body></html>
